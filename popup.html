@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pawfect Pics</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Pawfect Pics</h1>
+      <div id="theme-toggle-container">
+        <input type="checkbox" id="theme-toggle" />
+        <label for="theme-toggle" class="toggle-label"></label>
+      </div>
+    </div>
+    <label for="breed-select">Choose a breed:</label>
+    <select id="breed-select">
+      <option value="">Random</option>
+      <!-- Default for random images -->
+    </select>
+    <button id="fetch-dog">Find Dog</button>
+    <div id="dog-container">
+      <p id="breed-name"></p>
+      <img id="dog-image" src="" alt="Random Dog Image" />
+      <div id="dog-buttons">
+        <button id="remove-favorite" style="display: none">
+          Remove from Favorites
+        </button>
+        <button id="save-favorite">Save as Favorite</button>
+      </div>
+
+      <p id="dog-fact" style="margin-top: 10px; font-size: 0.9rem; color: #555">
+        Click "Get Dog" to see a fun fact!
+      </p>
+    </div>
+
+    <div id="favorites-container">
+      <h2>Your Favorite Dogs</h2>
+      <div id="favorites-list"></div>
+    </div>
+
+    <div id="meme-container">
+      <h2>Create Your Dog Meme!</h2>
+      <div>
+        <label for="top-text">Top Text:</label>
+        <input type="text" id="top-text" placeholder="Enter top text here" />
+      </div>
+      <div>
+        <label for="bottom-text">Bottom Text:</label>
+        <input
+          type="text"
+          id="bottom-text"
+          placeholder="Enter bottom text here"
+        />
+      </div>
+      <button id="generate-meme">Generate Meme</button>
+      <div id="meme-display">
+        <img
+          id="dog-meme-image"
+          src=""
+          alt="Dog Meme"
+          style="max-width: 100%"
+        />
+        <p id="meme-text" style="font-size: 1.2rem; color: white"></p>
+      </div>
+      <div>
+        <button id="save-meme" style="margin-top: 20px">Save Meme</button>
+        <button id="close-meme" class="close-button">X</button>
+      </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

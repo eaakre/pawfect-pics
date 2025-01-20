@@ -1,0 +1,326 @@
+/* Default (Light) Theme */
+:root {
+  --background: #f9f9f9;
+  --background-secondary: #e6e6e6;
+  --text: #333;
+  --text-secondary: #555;
+  --border: #ccc;
+  --button-bg: #0073e6;
+  --button-hover-bg: #005bb5;
+  --button-active-bg: #003f8c;
+  --favorite-bg: #f8f8f8;
+  --meme-bg: #f8f8f8;
+  --error-text: #777;
+  --alert-bg: #ff6b6b;
+  --alert-hover-bg: #e74c3c;
+  --alert-active-bg: #c0392b;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --background: #222;
+  --background-secondary: #333;
+  --text: #f9f9f9;
+  --text-secondary: #ddd;
+  --border: #555;
+  --button-bg: #1e90ff;
+  --button-hover-bg: #0073e6;
+  --button-active-bg: #005bb5;
+  --favorite-bg: #444;
+  --meme-bg: #444;
+  --error-text: #999;
+  --alert-bg: #ff4c4c;
+  --alert-hover-bg: #ff1a1a;
+  --alert-active-bg: #b30000;
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    to bottom right,
+    var(--background),
+    var(--background-secondary)
+  );
+  color: var(--text);
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  min-height: 400px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body,
+button,
+select,
+#favorites-container {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Dropdown Label */
+label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Dropdown Styles */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 1rem;
+  background: var(--background-secondary);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  border-color: #0073e6;
+}
+
+/* Button Styles */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--button-bg);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg);
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: var(--button-active-bg);
+}
+
+/* Image Container */
+#dog-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  flex-direction: column; /* Ensures the image and other elements stack vertically */
+  height: 100%; /* Ensures the container takes up full height of the body */
+}
+
+/* Error Message */
+#dog-container:empty::after {
+  content: "Click 'Get Dog' to see a picture!";
+  display: block;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--error-text);
+  font-style: italic;
+  text-align: center; /* Centers the error message */
+}
+
+#dog-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+#dog-image {
+  display: none; /* Hidden by default */
+  max-width: 100%;
+  border: 4px solid #ccc;
+  border-radius: 8px;
+  margin: 15px 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#dog-fact {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+#favorites-container {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--favorite-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+#favorites-list img {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+#favorites-list img:hover {
+  transform: scale(1.1);
+}
+
+#remove-favorite {
+  padding: 10px 20px;
+  background-color: var(--alert-bg);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#remove-favorite:hover {
+  transform: scale(1.05);
+  background-color: var(--alert-hover-bg);
+}
+
+#remove-favorite:active {
+  background-color: var(--alert-active-bg);
+}
+
+#meme-container {
+  position: relative;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--meme-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+#meme-display {
+  position: relative;
+  display: none;
+  margin-top: 15px;
+}
+
+.close-button {
+  cursor: pointer;
+}
+
+#meme-display img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+#meme-display p {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  width: 90%;
+  text-align: center;
+}
+
+#meme-display p.bottom {
+  top: unset;
+  bottom: 10px;
+}
+
+#top-text,
+#bottom-text {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #fff;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Toggle Container */
+#theme-toggle-container {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 25px;
+}
+
+/* Hide Checkbox */
+#theme-toggle {
+  display: none;
+}
+
+/* Toggle Label */
+.toggle-label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--button-bg);
+  border-radius: 25px;
+  transition: background-color 0.3s ease, background-image 0.3s ease;
+  background-image: url("sun.png"); /* Default state (sun) */
+  background-repeat: no-repeat;
+  background-position: 25px center; /* Add 10px offset from the left */
+  background-size: 20px 20px;
+}
+
+/* Circle */
+.toggle-label::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Toggle Checked State */
+#theme-toggle:checked + .toggle-label {
+  background-color: var(--button-hover-bg);
+  background-image: url("moon.png"); /* Checked state (moon) */
+  background-position: 4px center; /* Add 10px offset from the right */
+}
+
+#theme-toggle:checked + .toggle-label::after {
+  transform: translate(25px, -50%);
+  background-color: var(--background-secondary);
+}
