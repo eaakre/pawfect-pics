@@ -37,6 +37,8 @@ export class MemeGenerator {
 
   updateMemeText(topText, bottomText) {
     const memeTextElement = document.getElementById("meme-text");
+    const memeImage = document.getElementById("dog-meme-image");
+
     memeTextElement.textContent = topText;
     memeTextElement.classList.remove("bottom");
 
@@ -104,7 +106,7 @@ export class MemeGenerator {
     ctx.strokeStyle = "black";
     ctx.lineWidth = 4;
     ctx.textAlign = "center";
-    ctx.letterSpacing = "4px";
+    ctx.letterSpacing = "2px";
 
     const fontSize = 24;
     ctx.font = `bold ${fontSize}px Impact, Arial`;
